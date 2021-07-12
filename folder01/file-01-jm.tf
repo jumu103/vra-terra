@@ -11,21 +11,21 @@ provider "vsphere" {
 }
 
 data "vsphere_datacenter" "dc" {
-  name = "Datacenter"
+  name = "pDatacenter-1"
 }
 
 data "vsphere_datastore" "datastore" {
-  name          = "datastore1"
+  name          = "ds.nfs01"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
 data "vsphere_resource_pool" "pool" {
-  name          = "Cluster/Resources"
+  name          = "Cluster01/ResourcePool01"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
 data "vsphere_network" "network" {
-  name          = "vlan55"
+  name          = "SEG.172.16.10.00/24""
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
